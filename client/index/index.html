@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="C:\xampp\htdocs\train\assets\realicon.ico" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="index.css">
+
+    <title>Tea company</title>
+</head>
+<body>
+    <main class="body-main">
+        <nav class="main-nav">
+            <div class="main-nav-dropdown">
+                <i id="cross" class="fa-solid fa-xmark "></i>
+            </div>
+            <div class="main-nav-div">
+                <a href="#" id="nav-btn">
+                    <svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="house" class="svg-inline--fa fa-house" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z"></path></svg>
+                    <p  class="hidden-link">Home</p>
+                </a>
+                <a href="/client/report/report.html" id="nav-btn">
+                    <svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file" class="svg-inline--fa fa-file" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M256 0v128h128L256 0zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128z"></path></svg>
+                    <p  class="hidden-link">Report</p>
+                </a>
+                <a href="/client/report/report.html" id="nav-btn">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="money-check-dollar" class="svg-inline--fa fa-money-check-dollar" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528 64h-480C21.6 64 0 85.6 0 112v288C0 426.4 21.6 448 48 448h480c26.4 0 48-21.6 48-48v-288C576 85.6 554.4 64 528 64zM205.6 298.1c-3.604 20.82-19.34 34.52-41.58 39.33V348c0 11.05-8.988 20-20.03 20s-19.97-8.953-19.97-20v-11.06c-8.707-1.934-17.37-4.752-25.16-7.568l-4.031-1.453C84.44 324.2 79 312.8 82.7 302.4S97.89 286.6 108.2 290.2l4.234 1.516c7.844 2.828 16.73 6.047 23.67 7.078c13.62 2.125 28.73 .2187 30.08-7.547c.8594-5 1.344-7.75-27.75-16.08L132.7 273.5C115.4 268.5 74.98 256.6 82.38 213.9c3.615-20.9 19.3-34.82 41.67-39.58V164c0-11.05 8.918-20 19.97-20s20.03 8.953 20.03 20v10.95C169.5 176.2 175.3 177.7 182.4 180.2c10.44 3.609 15.97 15 12.34 25.44c-3.609 10.42-15 15.98-25.44 12.34C163.5 215.1 157.3 214 151.7 213.2C138.2 211 123.1 212.1 121.8 220.7C121 225.1 120.5 228.3 144 235.2l5.469 1.578C171.7 243.1 213.1 254.9 205.6 298.1zM336 320l-64-.0005c-8.801 0-16-7.201-16-15.1c0-8.801 7.199-16 16-16L336 288C344.8 288 352 295.2 352 304C352 312.8 344.8 320 336 320zM496 319.1L432 320C423.2 320 416 312.8 416 304C416 295.2 423.2 288 432 288l64-.0005c8.801 0 16 7.199 16 16C512 312.8 504.8 319.1 496 319.1zM496 224h-224C263.2 224 256 216.8 256 208C256 199.2 263.2 192 272 192h224C504.8 192 512 199.2 512 208C512 216.8 504.8 224 496 224z"></path></svg>
+                    <p  class="hidden-link">payment</p>
+                </a>
+                <a href="/client/report/report.html" id="nav-btn">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="screwdriver-wrench" class="svg-inline--fa fa-screwdriver-wrench" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M331.8 224.1c28.29 0 54.88 10.99 74.86 30.97l19.59 19.59c40.01-17.74 71.25-53.3 81.62-96.65c5.725-23.92 5.34-47.08 .2148-68.4c-2.613-10.88-16.43-14.51-24.34-6.604l-68.9 68.9h-75.6V97.2l68.9-68.9c7.912-7.912 4.275-21.73-6.604-24.34c-21.32-5.125-44.48-5.51-68.4 .2148c-55.3 13.23-98.39 60.22-107.2 116.4C224.5 128.9 224.2 137 224.3 145l82.78 82.86C315.2 225.1 323.5 224.1 331.8 224.1zM384 278.6c-23.16-23.16-57.57-27.57-85.39-13.9L191.1 158L191.1 95.99l-127.1-95.99L0 63.1l96 127.1l62.04 .0077l106.7 106.6c-13.67 27.82-9.251 62.23 13.91 85.39l117 117.1c14.62 14.5 38.21 14.5 52.71-.0016l52.75-52.75c14.5-14.5 14.5-38.08-.0016-52.71L384 278.6zM227.9 307L168.7 247.9l-148.9 148.9c-26.37 26.37-26.37 69.08 0 95.45C32.96 505.4 50.21 512 67.5 512s34.54-6.592 47.72-19.78l119.1-119.1C225.5 352.3 222.6 329.4 227.9 307zM64 472c-13.25 0-24-10.75-24-24c0-13.26 10.75-24 24-24S88 434.7 88 448C88 461.3 77.25 472 64 472z"></path></svg>
+                    <p  class="hidden-link">Grievances</p>
+                </a>
+                <a href="#" id="nav-btn" id="hide-div">
+                    <svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="address-card" class="svg-inline--fa fa-address-card" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM176 128c35.35 0 64 28.65 64 64s-28.65 64-64 64s-64-28.65-64-64S140.7 128 176 128zM272 384h-192C71.16 384 64 376.8 64 368C64 323.8 99.82 288 144 288h64c44.18 0 80 35.82 80 80C288 376.8 280.8 384 272 384zM496 320h-128C359.2 320 352 312.8 352 304S359.2 288 368 288h128C504.8 288 512 295.2 512 304S504.8 320 496 320zM496 256h-128C359.2 256 352 248.8 352 240S359.2 224 368 224h128C504.8 224 512 231.2 512 240S504.8 256 496 256zM496 192h-128C359.2 192 352 184.8 352 176S359.2 160 368 160h128C504.8 160 512 167.2 512 176S504.8 192 496 192z"></path></svg>
+
+                </a>
+                <a href="/client/login/login.html">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="right-to-bracket" class="svg-inline--fa fa-right-to-bracket" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M344.7 238.5l-144.1-136C193.7 95.97 183.4 94.17 174.6 97.95C165.8 101.8 160.1 110.4 160.1 120V192H32.02C14.33 192 0 206.3 0 224v64c0 17.68 14.33 32 32.02 32h128.1v72c0 9.578 5.707 18.25 14.51 22.05c8.803 3.781 19.03 1.984 26-4.594l144.1-136C354.3 264.4 354.3 247.6 344.7 238.5zM416 32h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64c17.67 0 32 14.33 32 32v256c0 17.67-14.33 32-32 32h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64c53.02 0 96-42.98 96-96V128C512 74.98 469 32 416 32z"></path></svg>
+                    <p class="hidden-link">login</p>
+                </a>  
+                <div  class="dropdown-farmer">
+                    <a href="/client/farmer/farmer.html" class="nav-btn"><p  class="hidden-link-dropdown">farmer</p></a>
+                    <a href="/client/add/add.html" class="nav-btn"><p  class="hidden-link-dropdown">Add</p></a>
+               </div>
+            </div>                  
+        </nav>
+        
+        <section class="main-body ">
+            <div class="menu-hoverable-display">
+                <i id="menu" class="fa-solid fa-bars "></i>
+            </div>
+            <!-- display images-->
+            <section class="display-images">
+                <div class="option-image">
+                    <input id="radio-btn" type="radio" checked="checked" name="radio" >
+                    <div class="clipped-div"><img src="tea-1.jpg"></div>
+                    <input id="radio-btn" type="radio" name="radio" >
+                    <div class="clipped-div"><img src="tea-2.jpg"></div>
+                    <input id="radio-btn" type="radio" name="radio" >
+                    <div class="clipped-div"><img src="tea-3.jpg"></div>
+                    <input id="radio-btn" type="radio" name="radio" >
+                    <div class="clipped-div"><img src="tea-4.jpg"></div>
+                </div>
+             </section>
+             <!-- reviews here-->
+            <section  id="review" class="review" hidden>
+            <div class="header-div">
+              <header class="header-before"><h2>Reviews</h2></header>
+            </div>
+              <div class="review-customers">
+                  <article class="review-article">
+                    <div class="div-image"><img id = "img-rev" src="1.jpg" alt="jim carrey"></div>
+                    <div><p class="p-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda totam ab natus sint, enim accusamus quaerat odit eos tempora debitis commodi qui praesentium delectus doloribus quia cumque, saepe animi necessitatibus.</p></div>
+                  </article>
+                  <article class="review-article">
+                      <div class="div-image"><img id = "img-rev" src="2.jpg" alt="Dominic Torreto"></div>
+                      <div><p class="p-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda totam ab natus sint, enim accusamus quaerat odit eos tempora debitis commodi qui praesentium delectus doloribus quia cumque, saepe animi necessitatibus.</p></div>
+                  </article>
+                  <article class="review-article">
+                      <div class="div-image"><img id = "img-rev" src="3.jpg" alt="paige spara"></div>
+                      <div><p class="p-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda totam ab natus sint, enim accusamus quaerat odit eos tempora debitis commodi qui praesentium delectus doloribus quia cumque, saepe animi necessitatibus.</p></div>
+                  </article>
+              </div>
+            </section>
+            <!-- about information-->
+            <section id="dashboard" class="dashboard">
+                <div class="header-div">
+                 <header class="header-before"><h2 class="dash-h2">About</h2></header>
+            </div>
+        <article>
+            <div><span>O</span>
+                <p> ur company has come with a genuine way that 
+                    enable our clients to get easy access to data in relation to their 
+            productions from their farms. This allows them to be able to
+        to be knowledgeable on our payment system enabling them to be fully satisfied with 
+
+    our services</p>
+               </div> 
+        </article>
+                 
+                <article>
+                    <header class="dash-header-2 "><h2 class="dash-h2-2">Statistics</h2></header>
+                    <h4>Total sales per year</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>2018</th>
+                                <th>2019</th>
+                                <th>2020</th>
+                                <th>2021</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <tr>
+                                 <td>12345</td>
+                                 <td>11234</td>
+                                 <td>12134</td>
+                                 <td>12144</td>
+                             </tr>
+                        </tbody>
+                    </table>
+                </article>
+                <article>
+                    <header><h2>Customers</h2></header>
+                    <div class="svg-display">
+                     <svg viewBox="0 0 170 80" xmlns="http://www.w3.org/2000/svg">
+      
+                         <text id="svg-text" x="20" y="35" fill="#09BC8A">23456</text>
+             
+                       </svg>
+                    </div>
+                    
+                   
+                </article>
+             
+             </section>
+            
+        </section>
+        <footer>
+            <div>
+                <p>2021 &copy Tea factorial ltd </p>
+            </div>
+        </footer>
+
+    </main>
+    <script src="index.js" defer></script>
+</body>
+</html>

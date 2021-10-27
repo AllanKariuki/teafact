@@ -1,0 +1,139 @@
+* {
+  --body-background:#508991;
+  --body-color:#172A3A;
+  --main-color:#74B3CE;
+  --main-background:#004346;
+  --text-color:#09BC8A;
+  --white-wash:#edffec;
+  outline: none;
+}
+
+html, body {
+  margin: 0;
+}
+
+body {
+  background: var(--body-color);
+  color: var(--body-color);
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.body-main {
+  width: 80%;
+  margin-top: 2em;
+  padding: .5em;
+  padding-top: 70px;
+  max-width: 500px;
+  background: var(--body-background);
+  position: relative;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.body-main .main-header {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  top: 0%;
+  left: 0%;
+  color: var(--body-color);
+}
+
+.body-main .main-form {
+  width: 100%;
+  min-height: 300px;
+  padding: .5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: var(--body-color);
+}
+
+.body-main .main-form > div {
+  width: 100%;
+}
+
+.body-main .main-form > div > label {
+  display: block;
+  margin-bottom: .4em;
+}
+
+.body-main .main-form > div > input {
+  padding: .3em;
+  margin-bottom: .5em;
+  width: 50%;
+  border: 1px solid var(--body-color);
+}
+
+.body-main .main-form > div > input:hover {
+  border: 1px solid var(--body-background);
+  -webkit-box-shadow: 0px 0px 0px 1px var(--body-color);
+          box-shadow: 0px 0px 0px 1px var(--body-color);
+}
+
+.body-main .main-form .sign-up-btn {
+  margin-top: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.body-main .main-form .sign-up-btn input {
+  border: 1px solid var(--main-background);
+  background: var(--text-color);
+  padding: .5em;
+  color: var(--white-wash);
+}
+
+.body-main .main-form .sign-up-btn input:hover {
+  border: 1px solid var(--white-wash);
+}
+
+.body-main .main-form .go-to-login {
+  text-align: center;
+}
+
+.body-main .main-form .go-to-login a {
+  color: var(--white-wash);
+  text-decoration: none;
+}
+
+.body-main .main-form .go-to-login a:hover {
+  text-decoration: underline;
+}
+
+.body-main .main-form .go-to-login a:active {
+  color: var(--body-color);
+}
+
+.body-main .main-form .select-role {
+  width: 50%;
+  padding: .3em;
+  margin-bottom: 5px;
+}
+/*# sourceMappingURL=signup.css.map */
