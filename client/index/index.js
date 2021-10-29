@@ -1,3 +1,8 @@
+//svg animation
+const svgText = document.getElementById("svg-text");
+//dropdown
+const dropDoc = document.getElementById("dropdown-farmer");
+const farmerDropHover = document.getElementById("hide-div");
 //navigation
 const cross = document.getElementById("cross");
 const mainNav = document.querySelector(".main-nav");
@@ -10,6 +15,37 @@ const search = document.getElementById("searchBtn");
 const navBtn = document.getElementById("#nav-btn");
 const navBody = document.querySelectorAll(".nav-body"); */
 //event listeners
+//animate svg
+
+
+document.addEventListener("scroll", () => {
+animate();
+    // fetch('http://localhost:5000/all')
+    // .then(response=>response.json())
+    // .then(data=> loadHTMLTable(data['data']));
+});
+function animate() {
+    var text = "12526";
+    function print(str) {
+        var i = 0;
+        (function main() {
+            var char = str[i++];
+            svgText.innerHTML += char;
+            if(i<str.length)
+            setTimeout(main, 600);
+        })();
+    }
+    print(text);
+}
+//dropdown
+farmerDropHover.addEventListener("mouseover", (e) => {
+    e.preventDefault();
+    dropDoc.classList.add("dropdown-farmer-active");
+});
+farmerDropHover.addEventListener("mouseout", (e) => {
+    e.preventDefault();
+    dropDoc.classList.remove("dropdown-farmer-active");
+});
 //main-nav-active
 menu.addEventListener("click", (e) => {
     e.preventDefault();
@@ -32,12 +68,7 @@ function waitLoader() {
 /* window.addEventListener("load", (e) => {
     setInterval(waitLoader, 5000);
 }); */
-document.addEventListener("DOMContentLoaded", () => {
 
-    // fetch('http://localhost:5000/all')
-    // .then(response=>response.json())
-    // .then(data=> loadHTMLTable(data['data']));
-})
 
 //other events
 /* navBtn.addEventListener("click", (e) => {
