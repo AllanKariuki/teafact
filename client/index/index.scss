@@ -11,7 +11,7 @@
  background:rebeccapurple;
  color:var(--body-color);
  box-sizing: border-box;
- min-width:100vw;
+ width:100vw;
 }.body-main{
     width:100%;
     background:var(--body-color);
@@ -496,6 +496,7 @@ a{display: inline;
                 .dropdown-farmer{
                     border-radius:0px;
                     width:100%;
+                    right:0px;
                     display:none;
                     position:relative;
                     height:100px;

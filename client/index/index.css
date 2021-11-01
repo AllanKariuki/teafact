@@ -17,7 +17,7 @@ body {
   color: var(--body-color);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  min-width: 100vw;
+  width: 100vw;
 }
 
 .body-main {
@@ -746,7 +746,7 @@ body {
           clip-path: circle(100% at center);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   .main-body {
     width: 100%;
     margin: 0;
@@ -772,6 +772,7 @@ body {
   .main-nav .main-nav-div #hide-div .dropdown-farmer {
     border-radius: 0px;
     width: 100%;
+    right: 0px;
     display: none;
     position: relative;
     height: 100px;
