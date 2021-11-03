@@ -29,8 +29,8 @@ body {
 
 .body-main {
   margin-top: 2rem;
-  min-width: 400px;
-  min-height: 80vh;
+  min-width: 300px;
+  min-height: 80%;
   background: var(--body-color);
   color: var(--main-color);
   border-radius: 5px;
@@ -110,7 +110,7 @@ body {
   width: 100px;
   position: absolute;
   top: 100%;
-  left: 50px;
+  left: 30px;
   height: 5px;
   color: var(--main-color);
   background: var(--white-wash);
@@ -233,11 +233,14 @@ body {
 }
 
 .form-signup .signup-btn {
-  padding: .5em;
+  padding: .3em;
   width: 50%;
   border: 1px solid var(--white-wash);
   color: var(--white-wash);
   background: var(--body-color);
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 1em;
 }
 
 .form-signup .signup-btn:hover {

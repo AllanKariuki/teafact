@@ -62,11 +62,16 @@ h2 {
   border: none;
   border-radius: 5px;
   color: var(--white-wash);
+  text-decoration: none;
 }
 
 .main-nav .go-back:hover {
   -webkit-box-shadow: 0px 0px 0px 2px var(--main-color);
           box-shadow: 0px 0px 0px 2px var(--main-color);
+}
+
+.main-nav .go-back:active {
+  color: var(--body-color);
 }
 
 .add {

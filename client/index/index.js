@@ -4,6 +4,7 @@ const svgText = document.getElementById("svg-text");
 const dropDoc = document.getElementById("dropdown-farmer");
 const farmerDropHover = document.getElementById("hide-div");
 //navigation
+const navHider = document.getElementById("nav-btn-hider");
 const cross = document.getElementById("cross");
 const mainNav = document.querySelector(".main-nav");
 const mainBody = document.querySelector(".main-body");
@@ -63,7 +64,26 @@ function waitLoader() {
     });
     var i = Math.floor(Math.random() * 4);
     radios[i].checked = true;
-}
+}//hover menu
+menu.addEventListener("mouseenter", (e) => {
+    e.preventDefault();
+    mainNav.classList.add("main-nav-active-hover");
+    mainBody.classList.add("main-body-nav-normal-display");
+});
+navHider.addEventListener("click",(e)=> {
+    e.preventDefault();
+    mainNav.classList.remove("main-nav-active-hover");
+    mainBody.classList.remove("main-body-nav-normal-display");
+});
+// menu.addEventListener("mouseout", (e) => {
+//     e.preventDefault();
+//     mainNav.classList.remove("main-nav-active-hover");
+//     mainBody.classList.remove("main-body-nav-normal-display");
+// });
+// if (window.screen.width <= 800) {
+//     menu.removeEventListener("mouseout");
+//         menu.removeEventListener("mouseover");
+// }
 //to open when ready
 /* window.addEventListener("load", (e) => {
     setInterval(waitLoader, 5000);

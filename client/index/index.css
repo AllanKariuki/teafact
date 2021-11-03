@@ -17,7 +17,7 @@ body {
   color: var(--body-color);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
 }
 
 .body-main {
@@ -38,6 +38,7 @@ body {
   left: 0;
   height: 100vh;
   z-index: 4;
+  display: none;
 }
 
 .main-nav .main-nav-div {
@@ -127,7 +128,7 @@ body {
 .main-nav .main-nav-div #hide-div .dropdown-farmer {
   width: 100%;
   opacity: 1;
-  right: -80px;
+  right: -100px;
   display: none;
   position: absolute;
   border-radius: 5px;
@@ -231,8 +232,16 @@ body {
   height: 100%;
 }
 
+.main-nav-active-hover {
+  display: block;
+}
+
 .main-nav-active {
   width: 200px;
+}
+
+.main-nav-active #nav-btn-hider {
+  display: none;
 }
 
 .main-nav-active .main-nav-dropdown .image-nav-logo {
@@ -304,7 +313,7 @@ body {
 }
 
 .main-body {
-  width: calc(100% - 70px);
+  width: 100%;
   background: var(--main-background);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -318,7 +327,6 @@ body {
   display: -ms-grid;
   display: grid;
   position: relative;
-  margin-left: 70px;
   padding-top: 60px;
   -webkit-transition: margin .6s;
   transition: margin .6s;
@@ -439,6 +447,11 @@ body {
 
 .main-body-with-nav .menu-hoverable-display {
   display: none;
+}
+
+.main-body-nav-normal-display {
+  width: calc(100% - 70px);
+  margin-left: 70px;
 }
 
 .dashboard {
@@ -714,7 +727,8 @@ body {
 }
 
 .display-images .clipped-div > img {
-  width: 600px;
+  width: 100%;
+  max-width: 900px;
   height: 90%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -757,6 +771,7 @@ body {
   .main-nav {
     display: none;
     opacity: 0;
+    height: 100%;
   }
   .main-nav .main-nav-div #hide-div {
     -webkit-box-align: center;
@@ -853,6 +868,7 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
   align-items: center;
+  display: none;
 }
 
 footer > div {

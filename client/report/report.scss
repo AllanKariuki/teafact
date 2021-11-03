@@ -41,7 +41,10 @@
         border:none;
         border-radius: 5px;
         color:var(--white-wash);
-    }.go-back:hover{
+        text-decoration: none;
+    }.go-back:active{
+        color:var(--body-color);
+      }.go-back:hover{
         box-shadow: 0px 0px 0px 2px  var(--main-color);
     }.header-title{
         width:90%;

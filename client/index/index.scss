@@ -11,7 +11,8 @@
  background:rebeccapurple;
  color:var(--body-color);
  box-sizing: border-box;
- width:100vw;
+ width:100%;
+ 
 }.body-main{
     width:100%;
     background:var(--body-color);
@@ -29,7 +30,7 @@
     left:0;
     height:100vh;
     z-index:4;
-    
+    display:none;
     .main-nav-div{
         width:100%; 
         height:100%;
@@ -44,7 +45,6 @@
             text-decoration:none;
             color:var(--text-color);
            // border:1px solid white;
-            
             padding:1em;
             > svg{
                 width:20px;
@@ -79,11 +79,10 @@
             }
             .hidden-link{
                 display:none;
-            }
-            .dropdown-farmer{
+            }.dropdown-farmer{
                 width:100%;
                 opacity:1;
-                right:-80px;
+                right:-100px;
                 display:none;
                 position:absolute;
                 border-radius:5px;
@@ -151,8 +150,14 @@
            }
        }
    }
-}.main-nav-active{
+}.main-nav-active-hover{
+    display:block;
+}
+.main-nav-active{
     width:200px;
+    #nav-btn-hider{
+        display:none;
+    }
     .main-nav-dropdown .image-nav-logo{
         display:none;
     }
@@ -205,15 +210,15 @@
 }
 //main body
 .main-body{
-    width:calc(100% - 70px );
+    width:100%;
     background:var(--main-background);
     display: flex;
     align-items: flex-start;
     justify-content:center;
     display:grid;
     position:relative;
-    margin-left:70px ;
     padding-top: 60px;
+    
     .menu-hoverable-display{
         width:100%;
         position:absolute;
@@ -249,6 +254,7 @@
         padding-top:100px;
         font-family: 'Source Sans Pro', sans-serif;
         position:relative;
+        
     }header{
         color:var(--main-color);
         text-align: center;
@@ -293,6 +299,9 @@
     .menu-hoverable-display{
         display:none;
     }
+}.main-body-nav-normal-display{
+    width:calc(100% - 70px );
+    margin-left:70px ;
 }
 .dashboard{
     
@@ -446,11 +455,11 @@
         justify-content: center;
         transition-delay:.25s;
         transition: all .8s;
-        
         clip-path: circle(0px at center);
         
         > img{
-            width:600px;
+            width:100%;
+            max-width:900px;
             height:90%;
             object-fit: cover;
         }
@@ -482,7 +491,7 @@ a{display: inline;
     }.main-nav{
         display:none;
         opacity:0;
-
+        height:100%;
         .main-nav-div{
             #hide-div{
                 align-items: center;
@@ -542,6 +551,7 @@ a{display: inline;
     }
     
 }footer{
+    
     width:100%;
     height:50px;
     display: flex;
@@ -549,6 +559,7 @@ a{display: inline;
     background:var(--body-color);
     justify-content: center;
     align-items: center;
+    display: none;
     > div{
       width:50%;
       text-align:center;

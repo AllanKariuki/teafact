@@ -75,6 +75,11 @@ body {
   border: none;
   border-radius: 5px;
   color: var(--white-wash);
+  text-decoration: none;
+}
+
+.main-nav .go-back:active {
+  color: var(--body-color);
 }
 
 .main-nav .go-back:hover {
