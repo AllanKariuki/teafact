@@ -20,20 +20,23 @@ const navBody = document.querySelectorAll(".nav-body"); */
 
 
 document.addEventListener("scroll", () => {
-animate();
+//animate();
     // fetch('http://localhost:5000/all')
     // .then(response=>response.json())
     // .then(data=> loadHTMLTable(data['data']));
 });
 function animate() {
     var text = "12526";
+    var i = 0;
     function print(str) {
-        var i = 0;
+        
         (function main() {
             var char = str[i++];
             svgText.innerHTML += char;
-            if(i<str.length)
-            setTimeout(main, 600);
+            if (i < 5) {
+                setTimeout(main, 600);
+            }
+            
         })();
     }
     print(text);
