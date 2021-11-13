@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'Company/css/farmer.css' %}" rel="stylesheet">
+    <title>reports</title>
+</head>
+<body>
+    <main class="main-body">
+        <nav class="main-nav">
+            <button class="go-back">back</button>
+            <header class="header-title"><h2>view farmer</h2></header>
+        </nav>
+        <section class="farmer-section">
+                  <div class="farmer-search-div">
+                        <div class="search-div">
+                         <label class="search-label">
+                             <input type="search" class="input-search search-input" placeholder="Search for ... ">
+                             <input type="submit" class="input-search submit-btn" value="search">
+                         </label>
+                         </div>
+                         <div class="filter">
+                           <select class="filter-select">
+                               <option selected>sort by</option>
+                               <option>date modified</option>
+                               <option>name</option>
+                               <option>location</option>
+                           </select>
+                         </div>
+                  </div>
+                  <div class="list-detail" id="list-detail">
+                      <div class="arrange-details" >
+                        <div><p class="name">NAME</p></div>
+                        <div><p class="name">LOCATION</p></div>
+                        <div><p class="name">FARM</p></div>
+                        <div><p class="name">Date</p></div>
+                      </div>
+                      <div class="when-loading" id="when-loading">
+                        <div class="loader">
+                          <div class="inner one"></div>
+                          <div class="inner two"></div>
+                          <div class="inner three"></div>
+                        </div>
+                      </div>
+                    {% for farmer in farmers%}
+                      <div class="farmer-details">
+                        <div><p class="name">{{farmer.farmer_name}}</p></div>
+                        <div><p class="name">{{farmer.location}}</p></div>
+                        <div><p class="name">{{farmer.farm_name}}</p></div>
+                        <div><p class="name">{{farmer.date_added}}</p></div>
+                         <div class="more-content" id="more-content">
+                           <p class="more-information">
+                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aut nisi reiciendis vitae obcaecati aperiam asperiores est. Quia qui harum odio nostrum, ab quasi alias culpa facilis? Odio, alias earum?
+                           </p>
+                         </div>
+                        <button class="view-more" id="view-more">view</button>
+                      </div>
+                    {% endfor %}
+                      
+                      <!-- <div class="farmer-details">
+                        <div><p class="name">janet</p></div>
+                        <div><p class="name">jkuat</p></div>
+                        <div><p class="name">20h</p></div>
+                        <div><p class="name">20-12-2019</p></div>
+                         <div class="more-content" id="more-content">
+                           <p class="more-information">
+                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aut nisi reiciendis vitae obcaecati aperiam asperiores est. Quia qui harum odio nostrum, ab quasi alias culpa facilis? Odio, alias earum?
+                           </p>
+                         </div>
+                        <button class="view-more" id="view-more">view</button>
+                      </div>
+                      <div class="farmer-details">
+                        <div><p class="name">janet</p></div>
+                        <div><p class="name">jkuat</p></div>
+                        <div><p class="name">20h</p></div>
+                        <div><p class="name">20-12-2019</p></div>
+                         <div class="more-content" id="more-content">
+                           <p class="more-information">
+                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aut nisi reiciendis vitae obcaecati aperiam asperiores est. Quia qui harum odio nostrum, ab quasi alias culpa facilis? Odio, alias earum?
+                           </p>
+                         </div>
+                        <button class="view-more" id="view-more">view</button>
+                      </div>
+                      <div class="farmer-details">
+                        <div><p class="name">janet</p></div>
+                        <div><p class="name">jkuat</p></div>
+                        <div><p class="name">20h</p></div>
+                        <div><p class="name">20-12-2019</p></div>
+                         <div class="more-content" id="more-content">
+                           <p class="more-information">
+                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aut nisi reiciendis vitae obcaecati aperiam asperiores est. Quia qui harum odio nostrum, ab quasi alias culpa facilis? Odio, alias earum?
+                           </p>
+                         </div>
+                        <button class="view-more" id="view-more">view</button>
+                      </div> -->
+                </div>
+        </section>
+
+    </main>
+    <script src="{% static 'Company/js/farmer.js' %}"></script>
+</body>
+</html>
+
+    

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="C:\xampp\htdocs\train\assets\realicon.ico" type="image/png">
+    <link rel="stylesheet" href="{% static 'Company/css/add.css'%}">
+    <title>add</title>
+</head>
+<body  id="active">
+    {% if messages %}
+            <div class="row" style="height: 20vh;">
+                <div class="col-md-8" id="messagealert" style="height: 20vh;">
+                
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                
+                </div>
+            </div>
+      {% endif %}
+    <main class="main-body">
+      <nav class="main-nav">
+        <button class="go-back">back</button>
+    </nav>
+        <section  id="add" class="add nav-body">
+          <div class="div-header">
+            <header class="header-before"><h2>Add Farmer</h2></header>
+          </div>
+            <form method= "POST">
+            {% csrf_token %}
+              <div class="add-div">
+                <div>
+                  <label for="name">Name:</label>
+                  {{staff_form.staff_name}}
+                </div>
+                <div>
+                  <label for="farm">Email:</label>
+                  {{staff_form.email}}
+                </div>
+                <div>
+                  <label for="location">department:</label>
+                  {{staff_form.department}}
+                </div>
+                <div>
+                  <label for="location">Contact:</label>
+                  {{staff_form.phone_number}}
+                </div>
+                <div>
+                  <label for="location">Position:</label>
+                  {{staff_form.position}}
+                </div>
+                <div id="submit-div-add">
+                    <input type="submit" value="submit" class = "form_submit">
+                </div>
+              </div>
+            </form>
+            </section>
+    </main>
+    <sript src= '{% static 'Company/js/add.js' %}'></script>
+</body>
+</html>
