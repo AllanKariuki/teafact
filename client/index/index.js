@@ -19,8 +19,8 @@ const navBody = document.querySelectorAll(".nav-body"); */
 //animate svg
 
 
-document.addEventListener("scroll", () => {
-//animate();
+document.addEventListener("DOMContentLoaded", () => {
+animate();
     // fetch('http://localhost:5000/all')
     // .then(response=>response.json())
     // .then(data=> loadHTMLTable(data['data']));
@@ -42,13 +42,9 @@ function animate() {
     print(text);
 }
 //dropdown
-farmerDropHover.addEventListener("mouseover", (e) => {
+farmerDropHover.addEventListener("click", (e) => {
     e.preventDefault();
-    dropDoc.classList.add("dropdown-farmer-active");
-});
-farmerDropHover.addEventListener("mouseout", (e) => {
-    e.preventDefault();
-    dropDoc.classList.remove("dropdown-farmer-active");
+    dropDoc.classList.toggle("dropdown-farmer-active");
 });
 //main-nav-active
 menu.addEventListener("click", (e) => {

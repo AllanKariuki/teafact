@@ -2,7 +2,7 @@
   --body-background:#508991;
   --body-color:#172A3A;
   --main-color:#74B3CE;
-  --main-background:#004346;
+  --main-background:linear-gradient(120deg, #caf8e6 20%, #30c67c);
   --text-color:#09BC8A;
   --white-wash:#fff;
   outline: none;
@@ -522,8 +522,23 @@ body {
           justify-content: space-evenly;
 }
 
-.dashboard .div-statistics article {
+.dashboard .div-statistics article:not(.about-info) {
   width: 50%;
+}
+
+.dashboard .about-info {
+  border: 1px solid red;
+  max-width: 600px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .dashboard p {

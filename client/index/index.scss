@@ -2,11 +2,12 @@
     --body-background:#508991;
     --body-color:#172A3A;
     --main-color:#74B3CE;
-    --main-background:#004346;
+    --main-background:linear-gradient(120deg, #caf8e6 20%, #30c67c);
     --text-color:#09BC8A;
     --white-wash:#fff;
     outline:none;
-}html,body{margin:0;
+}html,body{
+    margin:0;
 }body{
  background:rebeccapurple;
  color:var(--body-color);
@@ -338,9 +339,16 @@
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        article{
+        article:not(.about-info){
             width:50%;
         }
+    }.about-info{
+        border:1px solid red;
+        max-width:600px;
+        width:100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
     }
     p{
     text-align: justify;
