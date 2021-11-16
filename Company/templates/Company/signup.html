@@ -13,26 +13,21 @@
         <header class="main-header">
             <h1>sign up</h1>
         </header>
-        <form class="main-form" action="" method="">
+        <form class="main-form" action="" method="POST">
+        {% csrf_token %}
+
             <div>
                 <label>
-                    First Name
+                     UserName
                 </label>
-                <input type="text">
+                {{reg_form.username}}
             </div>
-            <div>
-                <label>
-                    Surname
-                </label>
-                <input type="text" >
-            </div>
-            <div>
                 <label>
                     Personal email (email will be used to send more information)
                 </label>
-                <input type="email" placeholder="email@gmail.com">
+                {{reg_form.email}}
             </div>
-            <div>
+            {% comment %} <div>
                 <label>
                     Select Role
                 </label>
@@ -41,18 +36,18 @@
                     <option> employee</option>
                     <option> customer</option>
                 </select>
-            </div>
+            </div> {% endcomment %}
             <div>
                 <label>
                     Password
                 </label>
-                <input type="password" placeholder="password">
+                {{reg_form.password1}}
             </div>
             <div>
                 <label>
                     Confirm Password
                 </label>
-                <input type="password" placeholder="confirm password">
+                {{reg_form.password2}}
             </div>
             <div class="sign-up-btn">
                 <input type="submit" value="sign up">

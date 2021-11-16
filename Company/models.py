@@ -37,9 +37,10 @@ class Records(models.Model):
 
 class Payments(models.Model):
     farmer_name = models.ForeignKey(Farmers, on_delete=CASCADE)
+    title = models.CharField(max_length=100, default= 'farmer')
     amount = models.IntegerField()
     date_paid = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.farmer_name
+        return self.title
 

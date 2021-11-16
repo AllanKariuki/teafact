@@ -9,16 +9,30 @@
     <title>log-in</title>
 </head>
 <body>
+    {% if messages %}
+            <div class="row" style="height: 20vh;">
+                <div class="col-md-8" id="messagealert" style="height: 20vh;">
+                
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                
+                </div>
+            </div>
+    {% endif %}
     <main class="body-main">
         <header class="main-header">
             <h1>login</h1>
         </header>
-        <form class="main-form" action="" method="">
+        <form class="main-form" action="" method="POST">
+        {% csrf_token %}
             <div class="form-div-email">
              <label class="label-email" for="email">
-                 Email
+                 Username
              </label>
-             <input type="email" name="email">
+             <input type="text" name="username">
             </div>
             <div class="form-div-password">
                <label class="label-password" for="password">

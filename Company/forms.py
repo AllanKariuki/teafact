@@ -17,6 +17,12 @@ class AddFarmerForm(forms.ModelForm):
         model = Farmers
         fields = ['farmer_name', 'farm_name', 'email', 'location', 'phone_number']
 
+class EditFarmerForm(forms.ModelForm):
+    class Meta:
+        model = Farmers
+        fields = ['farmer_name', 'farm_name', 'email', 'location', 'phone_number']
+
+
 class PaymentsForm(forms.ModelForm):
     class Meta:
         model = Payments

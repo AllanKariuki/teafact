@@ -47,7 +47,7 @@
                       </div>
                     {% for farmer in farmers%}
                       <div class="farmer-details">
-                        <div><p class="name">{{farmer.farmer_name}}</p></div>
+                        <div><p class="name"><a href="{% url 'view-farmer' farmer.farmer_name%}">{{farmer.farmer_name}}</a></p></div>
                         <div><p class="name">{{farmer.location}}</p></div>
                         <div><p class="name">{{farmer.farm_name}}</p></div>
                         <div><p class="name">{{farmer.date_added}}</p></div>

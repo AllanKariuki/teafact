@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="C:\xampp\htdocs\train\assets\realicon.ico" type="image/png">
+    <link rel="stylesheet" href="{% static 'Company/css/add.css' %}">
+    <title>view</title>
+</head>
+<body  id="active">
+  
+        {% if messages %}
+            <div class="row" style="height: 20vh;">
+                <div class="col-md-8" id="messagealert" style="height: 20vh;">
+                
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                
+                </div>
+            </div>
+        {% endif %}
+    <main class="main-body">
+      <nav class="main-nav">
+        <button class="go-back">back</button>
+        
+    </nav>
+        <section  id="add" class="add nav-body">
+          <div class="div-header">
+            <header class="header-before"><h2>Payment: {{payments.id}}</h2></header>
+          </div>
+              <div class="add-div">
+                <div>
+                  <label for="name">Name:</label>
+                  {{payments.farmer_name}}
+                </div>
+                <div>
+                  <label for="location">Amount:</label>
+                  {{payments.amount}}
+                </div>
+                <div>
+                  <label for="location">Location:</label>
+                  {{payments.date_paid}}
+                </div>
+                
+                <div id="submit-div-add">
+                    <input type="submit" value="Edit" class = "form_submit" href="{% url 'edit-farmer' farmer.farmer_name %}">
+                </div>
+              </div>
+            
+            </section>
+    </main>
+    <script src= "{% static 'Company/js/add.js' %}"></script>
+</body>
+</html>
