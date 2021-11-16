@@ -1,4 +1,5 @@
 {% extends 'Farmers/base.html' %}
+
 {% load static %}
 {% block content %}
 
@@ -7,7 +8,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>User Profile</h3>
+                <h3>View Record</h3>
               </div>
 
               <div class="title_right">
@@ -28,7 +29,7 @@
               <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>User Report <small>Activity report</small></h2>
+                    <h2>Record {{record.id}}<small>Activity report</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -52,7 +53,7 @@
                           <img class="img-responsive avatar-view" src="{% static 'Farmers/images/picture.jpg' %}" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      <h3>Samuel Doe</h3>
+                      <h3>{{request.username}}</h3>
 
                       <ul class="list-unstyled user_data">
                         <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
@@ -72,28 +73,28 @@
                       <br />
 
                       <!-- start skills -->
-                      <h4>Skills</h4>
+                      <h4>Your record</h4>
                       <ul class="list-unstyled user_data">
                         <li>
-                          <p>Web Applications</p>
+                          <p>Title | {{record.title}}</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                           </div>
                         </li>
                         <li>
-                          <p>Website Design</p>
+                          <p>Quantity | {{record.quantity}}</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
                           </div>
                         </li>
                         <li>
-                          <p>Automation & Testing</p>
+                           <p>Quality | {{record.quality}}</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
                           </div>
                         </li>
                         <li>
-                          <p>UI / UX</p>
+                          <p>Date | {{record.date_added}}</p> 
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                           </div>

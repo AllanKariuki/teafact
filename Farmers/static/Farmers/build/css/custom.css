@@ -4968,3 +4968,9 @@ ul.notifications {
 
 .calendar-exibit .calendar-table {
   padding: 0 0 4px 0; }
+
+
+  #messagealert{
+    height: 20vh;
+    margin-bottom: -50px;
+}

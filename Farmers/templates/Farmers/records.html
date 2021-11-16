@@ -1,4 +1,5 @@
 {% extends 'Farmers/base.html' %}
+
 {% load static %}
 {% block content %}
 
@@ -224,6 +225,11 @@
                                   <td>{{farm_record.quantity}}</td>
                                   <td>{{farm_record.quality}}</td>
                                   <td class="hidden-phone">{{farm_record.date_added}}</td>
+                                  <td class="hidden-phone">
+                                  <a href= "{% url 'record-detail' farm_record.id %}">
+                                    <button type="button" class="btn btn-round btn-primary"> View</button>
+                                  </a>
+                                  </td>
                                   <td class="vertical-align-mid">
                                     <div class="progress">
                                       <div class="progress-bar progress-bar-success" data-transitiongoal="35"></div>

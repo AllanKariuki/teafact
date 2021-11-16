@@ -44,26 +44,31 @@
                           <div class="inner three"></div>
                         </div>
                       </div>
-                      <!-- <div class="farmer-details">
-                        <div>
-                          <p class="name">kevin</p>
-                        </div>
-                        <div>
-                          <p class="name">20 hackers</p>
+                      {% for review in reviews %}
+                        <div class="farmer-details">
+                            <div>
+                              <p class="name">{{review.farmer_name}}</p>
+                            </div>
+                            <div>
+                              <p class="name">{{review.title}}</p>
 
-                        </div>
-                        <div>
-                          <p class="name ">20-2-2019</p>
-                        </div>
-            
-                         <div class="more-content" id="more-content">
-                           <p class="more-information">
-                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aut nisi reiciendis vitae obcaecati aperiam asperiores est. Quia qui harum odio nostrum, ab quasi alias culpa facilis? Odio, alias earum?
-                           </p>
-                         </div>
-                        <button class="view-more" id="view-more">view</button>
-                      </div> -->
-                      
+                            </div>
+                            <div>
+                              <p class="name">{{review.description}}</p>
+
+                            </div>
+                            <div>
+                              <p class="name ">20-2-2019</p>
+                            </div>
+                
+                            <div class="more-content" id="more-content">
+                              <p class="more-information">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aut nisi reiciendis vitae obcaecati aperiam asperiores est. Quia qui harum odio nostrum, ab quasi alias culpa facilis? Odio, alias earum?
+                              </p>
+                            </div>
+                            <button class="view-more" id="view-more">view</button>
+                          </div>
+                      {% endfor %}
                 </div>
         </section>
 

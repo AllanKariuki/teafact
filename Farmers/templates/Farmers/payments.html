@@ -1,7 +1,7 @@
 {% extends 'Farmers/base.html' %}
+
 {% load static %}
 {% block content %}
-
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -153,6 +153,14 @@
                                   <td>{{farm_payment.title}}</td>
                                   <td>{{farm_payment.amount}}</td>
                                   <td class="hidden-phone">{{farm_payment.date_added}}</td>
+                                  <td class="hidden-phone">
+                                  <a href= "{% url 'payment-detail' farm_payment.id %}">
+                                  <button type="button" class="btn btn-round btn-primary">View</button>
+                                  </a>
+                                  <a href= "{% url 'add-review' %}">
+                                  <button type="button" class="btn btn-round btn-primary">File Petition</button>
+                                  </a>
+                                  </td>
                                   <td class="vertical-align-mid">
                                     <div class="progress">
                                       <div class="progress-bar progress-bar-success" data-transitiongoal="35"></div>
