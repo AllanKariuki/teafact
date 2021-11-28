@@ -1,80 +1,205 @@
-{% load static %}<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'Company/css/grievances.css' %}" rel="stylesheet">
-    <title>grievances</title>
-</head>
-<body>
-    <main class="main-body">
-        <nav class="main-nav">
-            <button class="go-back">back</button>
-            <header class="header-title"><h2>grievances</h2></header>
-        </nav>
-        <section class="farmer-section">
-                  <div class="farmer-search-div">
-                        <div class="search-div">
-                         <label class="search-label">
-                             <input type="search" class="input-search search-input" placeholder="Search for ... ">
-                             <input type="submit" class="input-search submit-btn" value="search">
-                         </label>
-                         </div>
-                         <div class="filter">
-                           <select class="filter-select">
-                               <option selected>sort by</option>
-                               <option>date modified</option>
-                               <option>name</option>
-                               <option>location</option>
-                           </select>
-                         </div>
+{% extends 'Company/base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Reviews</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5  form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button">Go!</button>
+                    </span>
                   </div>
-                  <div class="list-detail" id="list-detail">
-                      <div class="arrange-details" >
-                        <div><p class="name">NAME</p></div>
-                        <div><p class="name">device</p></div>
-                        <div><p class="name">date</p></div>
-                        <div><p class="name">grievance</p></div>
-                      </div>
-                      <div class="when-loading" id="when-loading">
-                        <div class="loader">
-                          <div class="inner one"></div>
-                          <div class="inner two"></div>
-                          <div class="inner three"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Your Reviews <small>Activity report</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                          </div>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="col-md-3 col-sm-3  profile_left">
+                      <div class="profile_img">
+                        <div id="crop-avatar">
+                          <!-- Current avatar -->
+                          <img class="img-responsive avatar-view" src="{% static 'Farmers/images/picture.jpg' %}" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      {% for review in reviews %}
-                        <div class="farmer-details">
-                            <div>
-                              <p class="name">{{review.farmer_name}}</p>
-                            </div>
-                            <div>
-                              <p class="name">{{review.title}}</p>
+                       <h3>{{user.username}}</h3>
 
-                            </div>
-                            <div>
-                              <p class="name">{{review.description}}</p>
+                      <ul class="list-unstyled user_data">
+                        <li><i class="fa fa-map-marker user-profile-icon"></i> Teafact
+                        </li>
 
-                            </div>
-                            <div>
-                              <p class="name ">20-2-2019</p>
-                            </div>
-                
-                            <div class="more-content" id="more-content">
-                              <p class="more-information">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aut nisi reiciendis vitae obcaecati aperiam asperiores est. Quia qui harum odio nostrum, ab quasi alias culpa facilis? Odio, alias earum?
-                              </p>
-                            </div>
-                            <button class="view-more" id="view-more">view</button>
+                        <li>
+                          <i class="fa fa-briefcase user-profile-icon"></i> <!--{{farmer.location}}-->
+                        </li>
+
+                        <li class="m-top-xs">
+                          <i class="fa fa-external-link user-profile-icon"></i>
+                          <a href="http://www.kimlabs.com/profile/" target="_blank">{{user.email}}</a>
+                        </li>
+                      </ul>
+
+                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                      <br />
+
+                      <!-- start skills -->
+                       <h4>Details</h4>
+                      {% if request.user.is_staff%}
+
+                      <ul class="list-unstyled user_data">
+                        <li>
+                          <p>Name| {{user.username}}</p><!--{{farmer.farmer_name}}-->
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                           </div>
-                      {% endfor %}
+                        </li>
+                        <li>
+                          <p>Role| Admin</p><!--{{farmer.farm_name}}-->
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Phone| </p><!--{{farmer.phone_number}}-->
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Your sales so far</p>
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                          </div>
+                        
+                        </li>
+                      </ul>
+
+                      {% else %}
+
+                        <ul class="list-unstyled user_data">
+                        <li>
+                          <p>Name| {{staff.staff_name}}</p><!--{{farmer.farmer_name}}-->
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Position| {{staff.position}}</p><!--{{farmer.farm_name}}-->
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Department| {{staff.department}}</p><!--{{farmer.phone_number}}-->
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Your sales so far</p>
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                          </div>
+                        
+                        </li>
+                      </ul>
+
+                      {% endif %}
+                      <!-- end of skills -->
+
+                    </div>
+                    <div class="col-md-9 col-sm-9 ">
+
+                      <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                          
+                          <li role="presentation" class="active"><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Your records</a>
+                          </li>
+                          
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                          <div role="tabpanel" class="tab-pane active " id="tab_content1" aria-labelledby="home-tab">
+
+
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+                            <!-- start user projects -->
+                            <table class="data table table-striped no-margin">
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Farmer name</th>
+                                  <th>Title</th>
+                                  <th>Description</th>
+                                  <th class="hidden-phone">Date</th>
+                                  <th>Contributions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              {% for farmer_review in farmer_reviews %}                                 
+                                <tr>
+                                  <td>1</td>
+                                  <td>{{farmer_review.farmer_name}}</td>
+                                  <td>{{farmer_review.title}}</td>
+                                  <td>{{farmer_review.description}}</td>
+                                  <td class="hidden-phone">
+                                  <button type="button" class="btn btn-round btn-primary" href= "{% url 'review-detail' farmer_review.id %}">View</button>
+                                  </td> 
+                                  <td class="vertical-align-mid">
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-success" data-transitiongoal="35"></div>
+                                    </div>
+                                  </td>
+                                </tr>
+                              {% endfor %} 
+                              </tbody>
+                            </table>
+                            <!-- end user projects -->
+
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-        </section>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
 
-    </main>
-    <script src="{% static 'Company/js/grievances.js'%}"></script>
-</body>
-</html>
-
-    
+{% endblock content %}
+  

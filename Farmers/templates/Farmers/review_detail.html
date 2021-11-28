@@ -1,13 +1,13 @@
 {% extends 'Farmers/base.html' %}
-
 {% load static %}
 {% block content %}
+
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>User Profile</h3>
+                <h3>View Payment</h3>
               </div>
 
               <div class="title_right">
@@ -28,7 +28,7 @@
               <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>User Report <small>Activity report</small></h2>
+                    <h2>Payment {{payment.id}}<small>Activity report</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -45,14 +45,14 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <div class="col-md-3 col-sm-3  profile_left">
+                    <div class="col-md-9 col-sm-9  profile_left" style="margin-left: 200px;">
                       <div class="profile_img">
                         <div id="crop-avatar">
                           <!-- Current avatar -->
                           <img class="img-responsive avatar-view" src="{% static 'Farmers/images/picture.jpg' %}" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      <h3>Samuel Doe</h3>
+                      <h3>{{request.username}}</h3>
 
                       <ul class="list-unstyled user_data">
                         <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
@@ -68,109 +68,39 @@
                         </li>
                       </ul>
 
-                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                      <!--<a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>-->
                       <br />
 
                       <!-- start skills -->
-                      <h4>Skills</h4>
+                      <h4>Your Review</h4>
                       <ul class="list-unstyled user_data">
                         <li>
-                          <p>Web Applications</p>
+                          <p>Title | {{review.title}}</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                           </div>
                         </li>
                         <li>
-                          <p>Website Design</p>
+                          <p>Description | {{review.description}}</p>
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
+                          </div>
+                        </li>
+                        <!--<li>
+                          <p>Amount | {{payment.amount}}</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
                           </div>
                         </li>
                         <li>
-                          <p>Automation & Testing</p>
-                          <div class="progress progress_sm">
-                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
-                          </div>
-                        </li>
-                        <li>
-                          <p>UI / UX</p>
+                          <p>Date | {{payment.date_paid}}</p> 
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                           </div>
-                        </li>
+                        </li>-->
                       </ul>
                       <!-- end of skills -->
 
-                    </div>
-                    <div class="col-md-9 col-sm-9 ">
-
-                      <div class="profile_title">
-                        <div class="col-md-6">
-                          <h2>User Activity Report</h2>
-                        </div>
-                        <div class="col-md-6">
-                          <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
-                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                            <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- start of user-activity-graph -->
-                      <div id="graph_bar" style="width:100%; height:280px;"></div>
-                      <!-- end of user-activity-graph -->
-
-                      <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                          {% comment %} <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
-                          </li> {% endcomment %}
-                          <li role="presentation" class="active"><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Your records</a>
-                          </li>
-                          {% comment %} <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
-                          </li> {% endcomment %}
-                        </ul>
-                        <div id="myTabContent" class="tab-content">
-                          <div role="tabpanel" class="tab-pane active " id="tab_content1" aria-labelledby="home-tab">
-
-
-                          </div>
-                          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-
-                            <!-- start user projects -->
-                            <table class="data table table-striped no-margin">
-                              <thead>
-                                <tr>
-                                  <th>#</th>
-                                  <th>Title</th>
-                                  <th>Amount</th>
-                                  <th class="hidden-phone">Date</th>
-                                  <th>Contributions</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              {% comment %} {% for record in farm_record %} {% endcomment %}
-                                <tr>
-                                  <td>1</td>
-                                  <td>{{farm_payment.title}}</td>
-                                  <td>{{farm_payment.amount}}</td>
-                                  <td class="hidden-phone">{{farm_payment.date_added}}</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-success" data-transitiongoal="35"></div>
-                                    </div>
-                                  </td>
-                                </tr>
-                              
-                              </tbody>
-                            </table>
-                            <!-- end user projects -->
-
-                          </div>
-                          {% comment %} <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                            <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui
-                              photo booth letterpress, commodo enim craft beer mlkshk </p>
-                          </div> {% endcomment %}
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>

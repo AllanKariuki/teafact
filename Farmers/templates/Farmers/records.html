@@ -8,7 +8,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>User Profile</h3>
+                <h3>Records</h3>
               </div>
 
               <div class="title_right">
@@ -29,7 +29,7 @@
               <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>User Report <small>Activity report</small></h2>
+                    <h2>Your Records <small>Activity report</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -50,54 +50,55 @@
                       <div class="profile_img">
                         <div id="crop-avatar">
                           <!-- Current avatar -->
-                          <img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
+                          <img class="img-responsive avatar-view" src="{% static 'Farmers/images/picture.jpg' %}" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      <h3>Samuel Doe</h3>
+                      <h3>{{user.username}}</h3>
 
                       <ul class="list-unstyled user_data">
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                        <li><i class="fa fa-map-marker user-profile-icon"></i> Teafact
                         </li>
 
                         <li>
-                          <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+                          <i class="fa fa-briefcase user-profile-icon"></i> {{farmer.location}}
                         </li>
 
                         <li class="m-top-xs">
                           <i class="fa fa-external-link user-profile-icon"></i>
-                          <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+                          <a href="http://www.kimlabs.com/profile/" target="_blank">{{user.email}}</a>
                         </li>
                       </ul>
 
-                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                      <a class="btn btn-success" href = "{% url 'editprofile' %}"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
                       <br />
 
                       <!-- start skills -->
-                      <h4>Skills</h4>
+                      <h4>Details</h4>
                       <ul class="list-unstyled user_data">
                         <li>
-                          <p>Web Applications</p>
+                          <p>Name| {{farmer.farmer_name}}</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                           </div>
                         </li>
                         <li>
-                          <p>Website Design</p>
+                          <p>Farm Name| {{farmer.farm_name}}</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
                           </div>
                         </li>
                         <li>
-                          <p>Automation & Testing</p>
+                          <p>Phone| {{farmer.phone_number}}</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
                           </div>
                         </li>
                         <li>
-                          <p>UI / UX</p>
+                          <p>Your sales so far</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                           </div>
+                        
                         </li>
                       </ul>
                       <!-- end of skills -->
@@ -107,101 +108,30 @@
 
                       <div class="profile_title">
                         <div class="col-md-6">
-                          <h2>User Activity Report</h2>
+                          <h2>Records Report</h2>
                         </div>
                         <div class="col-md-6">
                           <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
                             <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                            <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                            <span>December 30, 2014 - January 28, 2021</span> <b class="caret"></b>
                           </div>
                         </div>
                       </div>
-                      <!-- start of user-activity-graph -->
+                      <!-- start of user-activity-graph
                       <div id="graph_bar" style="width:100%; height:280px;"></div>
-                      <!-- end of user-activity-graph -->
+                      end of user-activity-graph -->
 
                       <div class="" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                          {% comment %} <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
-                          </li> {% endcomment %}
+                          
                           <li role="presentation" class="active"><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Your records</a>
                           </li>
-                          {% comment %} <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
-                          </li> {% endcomment %}
+                          
                         </ul>
                         <div id="myTabContent" class="tab-content">
                           <div role="tabpanel" class="tab-pane active " id="tab_content1" aria-labelledby="home-tab">
 
-                            <!-- start recent activity -->
-                            {% comment %} <ul class="messages">
-                              <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-info">24</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Desmond Davison</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                    <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                                  </p>
-                                </div>
-                              </li>
-                              <li>
-                                <img src="{% static 'Farmers/images/img.jpg' %}" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-error">21</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Brian Michaels</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1" aria-hidden="true" data-icon=""></span>
-                                    <a href="#" data-original-title="">Download</a>
-                                  </p>
-                                </div>
-                              </li>
-                              <li>
-                                <img src="{% static 'Farmers/images/img.jpg' %}" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-info">24</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Desmond Davison</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                    <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                                  </p>
-                                </div>
-                              </li>
-                              <li>
-                                <img src="{% static 'Farmers/images/img.jpg' %}" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-error">21</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Brian Michaels</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1" aria-hidden="true" data-icon=""></span>
-                                    <a href="#" data-original-title="">Download</a>
-                                  </p>
-                                </div>
-                              </li>
-
-                            </ul> {% endcomment %}
-                            <!-- end recent activity -->
-
+                           
                           </div>
                           <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
 
@@ -218,15 +148,15 @@
                                 </tr>
                               </thead>
                               <tbody>
-                              {% comment %} {% for record in farm_record %} {% endcomment %}
+                               {% for record in farm_records %} 
                                 <tr>
                                   <td>1</td>
-                                  <td>{{farm_record.title}}</td>
-                                  <td>{{farm_record.quantity}}</td>
-                                  <td>{{farm_record.quality}}</td>
-                                  <td class="hidden-phone">{{farm_record.date_added}}</td>
+                                  <td>{{record.title}}</td>
+                                  <td>{{record.quantity}}</td>
+                                  <td>{{record.quality}}</td>
+                                  <td class="hidden-phone">{{record.date_added|date:"F d"}}</td>
                                   <td class="hidden-phone">
-                                  <a href= "{% url 'record-detail' farm_record.id %}">
+                                  <a href= "{% url 'record-detail' record.id %}">
                                     <button type="button" class="btn btn-round btn-primary"> View</button>
                                   </a>
                                   </td>
@@ -236,7 +166,7 @@
                                     </div>
                                   </td>
                                 </tr>
-                              
+                              {% endfor %}
                               </tbody>
                             </table>
                             <!-- end user projects -->

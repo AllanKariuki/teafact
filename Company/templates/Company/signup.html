@@ -1,61 +1,125 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'Company/css/signup.css' %}">
-    <title>sign-up</title>
-</head>
-<body>
-    <main class="body-main">
-        <header class="main-header">
-            <h1>sign up</h1>
-        </header>
-        <form class="main-form" action="" method="POST">
-        {% csrf_token %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            <div>
-                <label>
-                     UserName
-                </label>
+    <title>Gentelella Alela! | </title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'Farmers/vendors/bootstrap/dist/css/bootstrap.min.css' %%}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{% static 'Farmers/vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{% static 'Farmers/vendors/nprogress/nprogress.css' %}" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="{% static 'Farmers/vendors/animate.css/animate.min.css'%}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="{% static 'Farmers/build/css/custom.min.css' %}" rel="stylesheet">
+  </head>
+
+  <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form method = "POST">
+            {% csrf_token %}
+              <h1>Create an Account</h1>
+              <div>
+                <h6>Username</h6>
                 {{reg_form.username}}
-            </div>
-                <label>
-                    Personal email (email will be used to send more information)
-                </label>
+                <!--<input type="text" class="form-control" placeholder="Username" required="" />-->
+              </div>
+              <div>
+                <h6>Email</h6>
                 {{reg_form.email}}
-            </div>
-            {% comment %} <div>
-                <label>
-                    Select Role
-                </label>
-                <select class="select-role">
-                    <option selected> select level</option>
-                    <option> employee</option>
-                    <option> customer</option>
-                </select>
-            </div> {% endcomment %}
-            <div>
-                <label>
-                    Password
-                </label>
+                <!--<input type="text" class="form-control" placeholder="Username" required="" />-->
+              </div>
+              <div>
+                <h6>Password</h6>
                 {{reg_form.password1}}
-            </div>
-            <div>
-                <label>
-                    Confirm Password
-                </label>
+                <!--<input type="email" class="form-control" placeholder="Email" required="" />-->
+                
+              </div>
+              <div>
+                <h6>Confirm Password</h6>
                 {{reg_form.password2}}
-            </div>
-            <div class="sign-up-btn">
-                <input type="submit" value="sign up">
-            </div>
-            <div class="go-to-login">
-                <p>Already have an account <a href="../login/login.html">log in</a></p>
-            </div>
-        </form>
-    </main>
-</body>
+                <!--<input type="password" class="form-control" placeholder="Password" required="" />-->
+                
+              </div>
+              <div>
+                <button class="btn btn-default submit" type = "submit" name ="submit">Sign up</button>
+                <a class="reset_pass" href="#">Lost your password?</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">Already a member ?
+                  <a href="{% url 'login' %}" class="to_register"> Log in </a>
+                </p>
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        {% comment %} <div id="register" class="animate form registration_form">
+          <section class="login_content">
+            <form method = "POST">
+              <h1>Create Account</h1>
+              <div>
+                {{reg_form.username}}
+                <!--<input type="text" class="form-control" placeholder="Username" required="" />-->
+              </div>
+              <div>
+                {{reg_form.password1}}
+                <!--<input type="email" class="form-control" placeholder="Email" required="" />-->
+                
+              </div>
+              <div>
+                {{reg_form.password2}}
+                <!--<input type="password" class="form-control" placeholder="Password" required="" />-->
+                
+              </div>
+              <div>
+                <a class="btn btn-default submit" href="index.html">Submit</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">Already a member ?
+                  <a href="#signin" class="to_register"> Log in </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div> {% endcomment %}
+      </div>
+    </div>
+  </body>
 </html>

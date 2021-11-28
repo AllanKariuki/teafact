@@ -1,108 +1,98 @@
+{% extends 'Company/base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'Company/css/farmer.css' %}" rel="stylesheet">
-    <title>reports</title>
-</head>
-<body>
-    <main class="main-body">
-        <nav class="main-nav">
-            <button class="go-back">back</button>
-            <header class="header-title"><h2>view farmer</h2></header>
-        </nav>
-        <section class="farmer-section">
-                  <div class="farmer-search-div">
-                        <div class="search-div">
-                         <label class="search-label">
-                             <input type="search" class="input-search search-input" placeholder="Search for ... ">
-                             <input type="submit" class="input-search submit-btn" value="search">
-                         </label>
-                         </div>
-                         <div class="filter">
-                           <select class="filter-select">
-                               <option selected>sort by</option>
-                               <option>date modified</option>
-                               <option>name</option>
-                               <option>location</option>
-                           </select>
-                         </div>
+{% block content %}
+
+
+ <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Staffs</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5  form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
                   </div>
-                  <div class="list-detail" id="list-detail">
-                      <div class="arrange-details" >
-                        <div><p class="name">NAME</p></div>
-                        <div><p class="name">DEPARTMENT</p></div>
-                        <div><p class="name">POSTION</p></div>
-                        <div><p class="name">Email</p></div>
-                        <!--<div><p class="name">Date</p></div>-->
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="x_panel">
+                  <div class="x_content">
+                      <div class="col-md-12 col-sm-12  text-center">
+                        <ul class="pagination pagination-split">
+                          <li><a href="{% url 'add-farmer' %}">A</a></li>
+                          <li><a href="#">B</a></li>
+                          <li><a href="#">C</a></li>
+                          <li><a href="#">D</a></li>
+                          <li><a href="#">E</a></li>
+                          <li>...</li>
+                          <li><a href="#">W</a></li>
+                          <li><a href="#">X</a></li>
+                          <li><a href="#">Y</a></li>
+                          <li><a href="#">Z</a></li>
+                        </ul>
                       </div>
-                      <div class="when-loading" id="when-loading">
-                        <div class="loader">
-                          <div class="inner one"></div>
-                          <div class="inner two"></div>
-                          <div class="inner three"></div>
-                        </div>
-                      </div>
-                      {% for staff in staffs %}
-                        <div class="farmer-details">
-                            <div><p class="name">{{staff.staff_name}}</p></div>
-                            <div><p class="name">{{staff.department}}</p></div>
-                            <div><p class="name">{{staff.position}}</p></div>
-                            <div><p class="name">{{staff.email}}</p></div>
-                            <div><p class="name">{{staff.date_added}}</p></div>
-                            <div class="more-content" id="more-content">
-                              <p class="more-information">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aut nisi reiciendis vitae obcaecati aperiam asperiores est. Quia qui harum odio nostrum, ab quasi alias culpa facilis? Odio, alias earum?
+
+                      <div class="clearfix"></div>
+                    {% for staff in staffs %}
+                      <div class="col-md-4 col-sm-4  profile_details">
+                        <div class="well profile_view">
+                          <div class="col-sm-12">
+                            <h4 class="brief"><i>{{staff.department}}</i></h4>
+                            <div class="left col-md-7 col-sm-7">
+                              <h2>{{staff.staff_name}}</h2>
+                              <p><strong>Email: </strong>{{staff.email}}</p>
+                              <ul class="list-unstyled">
+                                <li><i class="fa fa-building"></i> Position: {{staff.position}}</li>
+                                <li><i class="fa fa-phone"></i> Phone #: {{staff.phone_number}}</li>
+                              </ul>
+                            </div>
+                            <div class="right col-md-5 col-sm-5 text-center">
+                              <img src="{% static 'Farmers/images/img.jpg' %}" alt="" class="img-circle img-fluid">
+                            </div>
+                          </div>
+                          <div class=" profile-bottom text-center">
+                            <div class=" col-sm-6 emphasis">
+                              <p class="ratings">
+                                <a>4.0</a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star-o"></span></a>
                               </p>
                             </div>
-                            <button class="view-more" id="view-more">view</button>
+                            <div class=" col-sm-6 emphasis">
+                              <button type="button" class="btn btn-success btn-sm"> <i class="fa fa-user">
+                                </i> <i class="fa fa-comments-o"></i> </button>
+                              <button type="button" class="btn btn-primary btn-sm">
+                                <a href= "{% url 'view-staff' staff.staff_name %}"> View  Staff </a>
+                              </button>
+                            </div>
+                          </div>
                         </div>
-                      {% endfor %}
-                      <!-- <div class="farmer-details">
-                        <div><p class="name">janet</p></div>
-                        <div><p class="name">jkuat</p></div>
-                        <div><p class="name">20h</p></div>
-                        <div><p class="name">20-12-2019</p></div>
-                         <div class="more-content" id="more-content">
-                           <p class="more-information">
-                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aut nisi reiciendis vitae obcaecati aperiam asperiores est. Quia qui harum odio nostrum, ab quasi alias culpa facilis? Odio, alias earum?
-                           </p>
-                         </div>
-                        <button class="view-more" id="view-more">view</button>
                       </div>
-                      <div class="farmer-details">
-                        <div><p class="name">janet</p></div>
-                        <div><p class="name">jkuat</p></div>
-                        <div><p class="name">20h</p></div>
-                        <div><p class="name">20-12-2019</p></div>
-                         <div class="more-content" id="more-content">
-                           <p class="more-information">
-                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aut nisi reiciendis vitae obcaecati aperiam asperiores est. Quia qui harum odio nostrum, ab quasi alias culpa facilis? Odio, alias earum?
-                           </p>
-                         </div>
-                        <button class="view-more" id="view-more">view</button>
-                      </div>
-                      <div class="farmer-details">
-                        <div><p class="name">janet</p></div>
-                        <div><p class="name">jkuat</p></div>
-                        <div><p class="name">20h</p></div>
-                        <div><p class="name">20-12-2019</p></div>
-                         <div class="more-content" id="more-content">
-                           <p class="more-information">
-                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aut nisi reiciendis vitae obcaecati aperiam asperiores est. Quia qui harum odio nostrum, ab quasi alias culpa facilis? Odio, alias earum?
-                           </p>
-                         </div>
-                        <button class="view-more" id="view-more">view</button>
-                      </div> -->
+                    {% endfor %}
+                  </div>
                 </div>
-        </section>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
 
-    </main>
-    <script src="{% static 'Company/js/farmer.js' %}"></script>
-</body>
-</html>
 
-    
+
+
+{% endblock content %}
+  

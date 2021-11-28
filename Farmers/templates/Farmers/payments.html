@@ -7,7 +7,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>User Profile</h3>
+                <h3>Farmers</h3>
               </div>
 
               <div class="title_right">
@@ -28,7 +28,7 @@
               <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>User Report <small>Activity report</small></h2>
+                    <h2>Farmer Payments <small>Activity report</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -52,51 +52,52 @@
                           <img class="img-responsive avatar-view" src="{% static 'Farmers/images/picture.jpg' %}" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      <h3>Samuel Doe</h3>
+                      <h3>{{user.username}}</h3>
 
                       <ul class="list-unstyled user_data">
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                        <li><i class="fa fa-map-marker user-profile-icon"></i> Teafact
                         </li>
 
                         <li>
-                          <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+                          <i class="fa fa-briefcase user-profile-icon"></i> {{farmer.location}}
                         </li>
 
                         <li class="m-top-xs">
                           <i class="fa fa-external-link user-profile-icon"></i>
-                          <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+                          <a href="http://www.kimlabs.com/profile/" target="_blank">{{user.email}}</a>
                         </li>
                       </ul>
 
-                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                      <a class="btn btn-success" href = "{% url 'editprofile' %}"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
                       <br />
 
                       <!-- start skills -->
-                      <h4>Skills</h4>
+                      <h4>Details</h4>
                       <ul class="list-unstyled user_data">
                         <li>
-                          <p>Web Applications</p>
+                          <p>Name| {{farmer.farmer_name}}</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                           </div>
                         </li>
                         <li>
-                          <p>Website Design</p>
+                          <p>Farm Name| {{farmer.farm_name}}</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
                           </div>
                         </li>
                         <li>
-                          <p>Automation & Testing</p>
+                          <p>Phone| {{farmer.phone_number}}</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
                           </div>
                         </li>
                         <li>
-                          <p>UI / UX</p>
+                          <p>Your sales so far</p>
                           <div class="progress progress_sm">
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                           </div>
+                        
                         </li>
                       </ul>
                       <!-- end of skills -->
@@ -106,7 +107,7 @@
 
                       <div class="profile_title">
                         <div class="col-md-6">
-                          <h2>User Activity Report</h2>
+                          <h2>Payment records</h2>
                         </div>
                         <div class="col-md-6">
                           <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
@@ -116,17 +117,15 @@
                         </div>
                       </div>
                       <!-- start of user-activity-graph -->
-                      <div id="graph_bar" style="width:100%; height:280px;"></div>
+                      {% comment %} <div id="graph_bar" style="width:100%; height:280px;"></div> {% endcomment %}
                       <!-- end of user-activity-graph -->
 
                       <div class="" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                          {% comment %} <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
-                          </li> {% endcomment %}
+                          
                           <li role="presentation" class="active"><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Your records</a>
                           </li>
-                          {% comment %} <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
-                          </li> {% endcomment %}
+                          
                         </ul>
                         <div id="myTabContent" class="tab-content">
                           <div role="tabpanel" class="tab-pane active " id="tab_content1" aria-labelledby="home-tab">
@@ -147,7 +146,7 @@
                                 </tr>
                               </thead>
                               <tbody>
-                              {% comment %} {% for record in farm_record %} {% endcomment %}
+                             {% for farm_payment in farm_payments %} 
                                 <tr>
                                   <td>1</td>
                                   <td>{{farm_payment.title}}</td>
@@ -167,16 +166,13 @@
                                     </div>
                                   </td>
                                 </tr>
-                              
+                              {% endfor %}
                               </tbody>
                             </table>
                             <!-- end user projects -->
 
                           </div>
-                          {% comment %} <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                            <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui
-                              photo booth letterpress, commodo enim craft beer mlkshk </p>
-                          </div> {% endcomment %}
+                          
                         </div>
                       </div>
                     </div>

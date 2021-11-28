@@ -22,6 +22,11 @@ class EditFarmerForm(forms.ModelForm):
         model = Farmers
         fields = ['farmer_name', 'farm_name', 'email', 'location', 'phone_number']
 
+class EditStaffForm(forms.ModelForm):
+    email = forms.EmailField()
+    class Meta:
+        model = Staffs
+        fields = ['staff_name', 'email', 'phone_number', 'department', 'position']
 
 class PaymentsForm(forms.ModelForm):
     class Meta:

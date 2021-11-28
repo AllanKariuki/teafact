@@ -1,66 +1,112 @@
+{% extends 'Company/base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="C:\xampp\htdocs\train\assets\realicon.ico" type="image/png">
-    <link rel="stylesheet" href="{% static 'Company/css/add.css'%}">
-    <title>add</title>
-</head>
-<body  id="active">
-    {% if messages %}
-            <div class="row" style="height: 20vh;">
-                <div class="col-md-8" id="messagealert" style="height: 20vh;">
-                
-                    {% for message in messages %}
-                        <div class="alert alert-{{ message.tags }}">
-                            {{message}}
-                        </div>
-                    {% endfor %}
-                
-                </div>
-            </div>
-      {% endif %}
-    <main class="main-body">
-      <nav class="main-nav">
-        <button class="go-back">back</button>
-    </nav>
-        <section  id="add" class="add nav-body">
-          <div class="div-header">
-            <header class="header-before"><h2>Add Farmer</h2></header>
-          </div>
-            <form method= "POST">
-            {% csrf_token %}
-              <div class="add-div">
-                <div>
-                  <label for="name">Name:</label>
-                  {{staff_form.staff_name}}
-                </div>
-                <div>
-                  <label for="farm">Email:</label>
-                  {{staff_form.email}}
-                </div>
-                <div>
-                  <label for="location">department:</label>
-                  {{staff_form.department}}
-                </div>
-                <div>
-                  <label for="location">Contact:</label>
-                  {{staff_form.phone_number}}
-                </div>
-                <div>
-                  <label for="location">Position:</label>
-                  {{staff_form.position}}
-                </div>
-                <div id="submit-div-add">
-                    <input type="submit" value="submit" class = "form_submit">
-                </div>
-              </div>
-            </form>
-            </section>
-    </main>
-    <sript src= '{% static 'Company/js/add.js' %}'></script>
-</body>
-</html>
+{% block content %}
+
+
+			<!-- page content -->
+			<div class="right_col" role="main">
+				<div class="">
+					<div class="page-title">
+						<div class="title_left">
+							<h3>Staff</h3>
+						</div>
+
+						<div class="title_right">
+							<div class="col-md-5 col-sm-5  form-group pull-right top_search">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Search for...">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="button">Go!</button>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 ">
+							<div class="x_panel">
+								<div class="x_title">
+									<h2>Add Staff <small>different form elements</small></h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+										</li>
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+											<ul class="dropdown-menu" role="menu">
+												<li><a class="dropdown-item" href="#">Settings 1</a>
+												</li>
+												<li><a class="dropdown-item" href="#">Settings 2</a>
+												</li>
+											</ul>
+										</li>
+										<li><a class="close-link"><i class="fa fa-close"></i></a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content">
+									<br />
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method = "POST">
+										{% csrf_token %}
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Farmer <span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												{% comment %} <input type="file" id="first-name" required="required" class="form-control "> {% endcomment %}
+												{{staff_form.staff_name}}
+											</div>
+										</div>
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Email <span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												{% comment %} <input type="file" id="first-name" required="required" class="form-control "> {% endcomment %}
+												{{staff_form.staff_email}}
+											</div>
+										</div>
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Department <span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												{% comment %} <input type="file" id="first-name" required="required" class="form-control "> {% endcomment %}
+												{{staff_form.staff_department}}
+											</div>
+										</div>
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Contact <span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												{% comment %} <input type="file" id="first-name" required="required" class="form-control "> {% endcomment %}
+												{{staff_form.phone_number}}
+											</div>
+										</div>
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Porisition <span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												{% comment %} <input type="file" id="first-name" required="required" class="form-control "> {% endcomment %}
+												{{staff_form.position}}
+											</div>
+										</div>
+										<div class="ln_solid"></div>
+										<div class="item form-group">
+											<div class="col-md-6 col-sm-6 offset-md-3">
+												<button class="btn btn-primary" type="button">Cancel</button>
+												<button class="btn btn-primary" type="reset">Reset</button>
+												<button type="submit" class="btn btn-success">Submit</button>
+											</div>
+										</div>
+
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+			<!-- /page content -->
+{% endblock content %}

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Farmer Homepage | </title>
+    <title>Teafact | </title>
     <!--form.html-->
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
@@ -40,7 +40,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Teafact!</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Teafact</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -53,7 +53,6 @@
               <div class="profile_info">
                 <span>Welcome,</span>
                 <h2>{{user.username}}</h2>
-                
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -65,32 +64,22 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li>
-                  
-                    <a href="{% url 'home' %}"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     
                   </li>
-                  <li>
-                  
-                    <a href="{% url 'profile' %}"><i class="fa fa-edit"></i> Profile <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="{% url 'farmers' %}"><i class="fa fa-edit"></i> Farmers <span class="fa fa-chevron-down"></span></a>
+                  </li>
+                  {% if request.user.is_staff %}
+                    <li><a href="{% url 'staffs' %}"><i class="fa fa-edit"></i> Staffs <span class="fa fa-chevron-down"></span></a>
+                    </li>
+                  {% endif %}
+                  <li><a href="{% url 'company-payments' %}"><i class="fa fa-desktop"></i> Payments <span class="fa fa-chevron-down"></span></a>
+                  </li>
+                  <li><a href="{% url 'company-records' %}"><i class="fa fa-table"></i> Records <span class="fa fa-chevron-down"></span></a>
+                  </li>
+                  <li><a href="{% url 'company-reviews' %}"><i class="fa fa-bar-chart-o"></i> Reviews <span class="fa fa-chevron-down"></span></a>
                     
                   </li>
-                  <li>
-                  
-                    <a href="{% url 'payments' %}"><i class="fa fa-desktop"></i> Payments <span class="fa fa-chevron-down"></span></a>
-                    
-                  </li>
-                  <li>
-                  
-                    <a href="{% url 'records' %}"><i class="fa fa-table"></i> Records <span class="fa fa-chevron-down"></span></a>
-                    
-                  </li>
-                  <li>
-
-                    <a href="{% url 'reviews' %}"><i class="fa fa-bar-chart-o"></i> Reviews <span class="fa fa-chevron-down"></span></a>
-                  
-                  </li>
-                  
                 </ul>
               </div>
               
@@ -186,7 +175,7 @@
                         <a class="dropdown-item">
                           <span class="image"><img src="{% static 'Farmers/images/img.jpg' %}" alt="Profile Image" /></span>
                           <span>
-                            <span>John Smith</span>
+                            <span>{{user.username}}</span>
                             <span class="time">3 mins ago</span>
                           </span>
                           <span class="message">
@@ -231,7 +220,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Teafact Limited
+            Teafact
           </div>
           <div class="clearfix"></div>
         </footer>

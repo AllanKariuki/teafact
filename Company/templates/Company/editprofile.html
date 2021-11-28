@@ -9,7 +9,7 @@
 				<div class="">
 					<div class="page-title">
 						<div class="title_left">
-							<h3>Records</h3>
+							<h3>Form Elements</h3>
 						</div>
 
 						<div class="title_right">
@@ -28,7 +28,7 @@
 						<div class="col-md-12 col-sm-12 ">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>Add Record <small>different form elements</small></h2>
+									<h2>Edit Profile <small>different form elements</small></h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 										</li>
@@ -51,34 +51,11 @@
 									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method = "POST">
 										{% csrf_token %}
 										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Farmer <span class="required">*</span>
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Image <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												{{rec_form.farmer_name}}
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												
-												{{rec_form.title}}
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Quantity <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												
-												{{rec_form.quantity}}
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Quality <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												
-												{{rec_form.quality}}
+												{% comment %} <input type="file" id="first-name" required="required" class="form-control "> {% endcomment %}
+												{{profile_form.image}}
 											</div>
 										</div>
 										<div class="ln_solid"></div>
@@ -90,20 +67,13 @@
 											</div>
 										</div>
 
-
 									</form>
-									{% if messages %}
-										{% for message in messages%}
-											<p>{{message}}</p>
-											{{form.errors}}
-										{% endfor %}
-									{% endif %}
 								</div>
 							</div>
 						</div>
 					</div>
 
-
+				
 				</div>
 			</div>
 			<!-- /page content -->
